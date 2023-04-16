@@ -1,0 +1,22 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+@await Html.PartialAsync("PartialHeader.cshtml")
+
+<body>
+
+	@await Html.PartialAsync("PartialNavbar.cshtml")
+	
+	@RenderBody()
+
+	@await Html.PartialAsync("PartialFooter.cshtml")
+
+	@await Html.PartialAsync("PartialScript.cshtml")
+
+</body>
+</html>

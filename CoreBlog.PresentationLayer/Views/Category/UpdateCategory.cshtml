@@ -1,0 +1,19 @@
+﻿@model Category
+
+@{
+    ViewData["Title"] = "UpdateCategory";
+    Layout = null;
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <br /><h4>Kategori Güncelleme Ekranı</h4><br />
+    <form method="post" class="form-group">
+        <input type="hidden" asp-for="CategoryId" />
+        <label>Kategori Adı</label>
+        <input type="text" class="form-control" asp-for="CategoryName" />
+        <br />
+        <button class="btn btn-outline-primary">Kategori Güncelle</button>
+    </form>
+</div>
