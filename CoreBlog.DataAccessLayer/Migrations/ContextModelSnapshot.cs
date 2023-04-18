@@ -126,6 +126,9 @@ namespace CoreBlog.DataAccessLayer.Migrations
                     b.Property<DateTime>("CommentDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("CommentEmail")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("CommentStatus")
                         .HasColumnType("bit");
 
@@ -172,12 +175,33 @@ namespace CoreBlog.DataAccessLayer.Migrations
                     b.ToTable("Contacts");
                 });
 
+            modelBuilder.Entity("CoreBlog.EntityLayer.Concrete.NewsLetter", b =>
+                {
+                    b.Property<int>("MailId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Mail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("MailStatus")
+                        .HasColumnType("bit");
+
+                    b.HasKey("MailId");
+
+                    b.ToTable("NewsLetters");
+                });
+
             modelBuilder.Entity("CoreBlog.EntityLayer.Concrete.Writer", b =>
                 {
                     b.Property<int>("WriterId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ConfirmPassword")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("WriterAbout")
                         .HasColumnType("nvarchar(max)");
@@ -188,7 +212,7 @@ namespace CoreBlog.DataAccessLayer.Migrations
                     b.Property<string>("WriterImage")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("WriterName")
+                    b.Property<string>("WriterNameSurname")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("WriterPassword")
@@ -196,9 +220,6 @@ namespace CoreBlog.DataAccessLayer.Migrations
 
                     b.Property<bool>("WriterStatus")
                         .HasColumnType("bit");
-
-                    b.Property<string>("WriterSurname")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("WriterId");
 

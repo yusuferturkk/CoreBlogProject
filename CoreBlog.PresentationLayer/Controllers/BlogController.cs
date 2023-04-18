@@ -21,6 +21,7 @@ namespace CoreBlog.PresentationLayer.Controllers
 
 		public IActionResult BlogDetails(int id)
 		{
+			ViewBag.Id = id;
 			var value = _blogService.GetBlogById(id);
 			return View(value);
 		}

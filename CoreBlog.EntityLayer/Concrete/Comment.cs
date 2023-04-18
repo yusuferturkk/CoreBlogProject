@@ -10,6 +10,7 @@ namespace CoreBlog.EntityLayer.Concrete
     {
         public int CommentId { get; set; }
         public string CommentUsername { get; set; }
+        public string CommentEmail { get; set; }
         public string CommentTitle { get; set; }
         public string CommentContent { get; set; }
         public DateTime CommentDate { get; set; }

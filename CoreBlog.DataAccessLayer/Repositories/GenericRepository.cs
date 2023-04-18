@@ -23,7 +23,7 @@ namespace CoreBlog.DataAccessLayer.Repositories
                 addedEntity.State = EntityState.Added;
                 context.SaveChanges();
             }
-            
+
         }
 
         public void Update(TEntity entity)
@@ -48,26 +48,17 @@ namespace CoreBlog.DataAccessLayer.Repositories
 
         public TEntity GetById(int id)
         {
-            using (context)
-            {
-                return context.Set<TEntity>().Find(id);
-            }
+            return context.Set<TEntity>().Find(id);
         }
 
         public List<TEntity> GetList()
         {
-            using (context)
-            {
-                return context.Set<TEntity>().ToList();
-            }
+            return context.Set<TEntity>().ToList();
         }
 
         public List<TEntity> GetList(Expression<Func<TEntity, bool>> filter)
         {
-            using (context)
-            {
-                return context.Set<TEntity>().Where(filter).ToList();
-            }
+            return context.Set<TEntity>().Where(filter).ToList();
         }
     }
 }

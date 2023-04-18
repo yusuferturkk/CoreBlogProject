@@ -44,6 +44,9 @@ namespace CoreBlog.PresentationLayer
             services.AddScoped<IContactService, ContactManager>();
             services.AddScoped<IContactDal, EfContactDal>();
 
+            services.AddScoped<INewsLetterService, NewsLetterManager>();
+            services.AddScoped<INewsLetterDal, EfNewsLetterDal>();
+
             services.AddScoped<IWriterService, WriterManager>();
             services.AddScoped<IWriterDal, EfWriterDal>();
         }
@@ -61,6 +64,9 @@ namespace CoreBlog.PresentationLayer
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseStatusCodePagesWithReExecute("/ErrorPage/Page404", "?code={0}");
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
